@@ -1,0 +1,49 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os,csv,StringIO,re
+from datetime import datetime
+
+def parsefile ( file , date):
+    f = open(file, 'r')
+    dlspeed = 0
+    ulspeed = 0
+    ping = 0
+    link = ""
+    for line in f:
+        tokens = line.split(" ")
+        if tokens[0] == 'Download:':
+            dlspeed = float(tokens[1])
+            if tokens[2].startswith('kbit/s'):
+                dlspeed = dlspeed/1024
+            elif not tokens[2].startswith('Mbit/s'):
+                dlspeed = dlspeed/1024/1024
+        elif tokens[0] == 'Upload:':
+            ulspeed = float(tokens[1])
+            if tokens[2].startswith('kbit/s'):
+                ulspeed = ulspeed/1024
+            elif not tokens[2].startswith('Mbit/s'):
+                ulspeed = ulspeed/1024/1024
+        elif tokens[0] == 'Ping:':
+            ping = float(tokens[1])
+        elif tokens[0] == 'Share':
+            link = tokens[2].strip()
+    
+    if dlspeed == 0 and ulspeed == 0:
+        return None
+    return [date,dlspeed,ulspeed,ping,link]
+
+logdir = os.path.realpath(os.path.dirname(os.path.realpath(__file__)) + '/speedtests/')
+files = sorted([f for f in os.listdir(logdir) if re.match(r'[0-9]+.*\.log', f)])
+output = StringIO.StringIO()
+csvwriter = csv.writer(output, delimiter=';',
+                            quotechar='"', quoting=csv.QUOTE_MINIMAL)
+csvwriter.writerow(["Date","Download (Mbit/s)","Upload (Mbit/s)","Ping","Link"])
+for filename in files:
+    date = datetime.strptime(filename,"%Y-%m-%d_%H-%M.log")
+    res = parsefile(logdir+'/'+filename,date)
+    if res <> None:
+        csvwriter.writerow(res)
+
+print output.getvalue()
+output.close()

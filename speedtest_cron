@@ -1,0 +1,5 @@
+#!/bin/bash
+#add python to path if needed
+#export PATH=/opt/usr/sbin:/opt/sbin:/opt/bin:$PATH
+DATE=$(date +%Y-%m-%d_%H-%M)
+$PWD/speedtest_cli/speedtest_cli.py --share --server 5351 --simple --source `/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'` > $PWD/speedtests/$DATE.log
