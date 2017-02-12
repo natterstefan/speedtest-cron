@@ -47,6 +47,15 @@ _speedtest_cron_ should run regularly to be able to analyse trends. To do so you
 
 With ```./speedcsv > results.csv``` you generate a file of the generated results (one file per test in the speedtests folder). You can then further evaluate the results in a spreadsheet.
 
+### speedtest_ifttt
+
+After reading the "[Use Raspberry Pi to Measure Broadband Speeds to Hold Your ISP Accountable][iftttmaker]" article I decided to implemented [Aallan's work][gistaallan] here too. Because I would like to get either a push notification when the internet speed drops or add the result to a Google Spreadsheet automatically. This is how you use it:
+
+- rename ```example.cfg``` to ```speedtest.cfg```
+- setup the [maker channel on IFTTT][maker]
+- add an Applet [like this one][ifapplet]
+- add the secret key and event name to the `speedtest.cfg`
+- run the script ```./speedtest_ifttt```
 
 ## Development
 
@@ -55,7 +64,8 @@ Improvements, suggestions or bug fixes are very welcome. Just create a pull requ
 
 ## Similar projects
 
-There are other projects available, like [speedtest-cli-extras by HenrikBengtsson][spclix], [speedtest-cron by vwillcox][vwillcox] or [speedtest-cron by brainTrain][brainTrain]. The last one makes use of [Google Spreadsheets and IFTTT's Maker](http://makezine.com/projects/send-ticket-isp-when-your-internet-drops/).
+There are other projects available, like [speedtest-cli-extras by HenrikBengtsson][spclix], [speedtest-cron by vwillcox][vwillcox] or [speedtest-cron by brainTrain][brainTrain]. The last one makes use of [Google Spreadsheets and IFTTT's Maker][iftttmaker].
+
 
  [spcli]: https://github.com/sivel/speedtest-cli
  [spclix]: https://github.com/HenrikBengtsson/speedtest-cli-extras
@@ -63,3 +73,7 @@ There are other projects available, like [speedtest-cli-extras by HenrikBengtsso
  [brainTrain]: https://github.com/brainTrain/speedtest-cron
  [speedtest]: http://www.speedtest.net/
  [jsspcr]: https://gitgud.io/J0s3f/speedtest_cron
+ [iftttmaker]: http://makezine.com/projects/send-ticket-isp-when-your-internet-drops/
+ [gistaallan]: https://gist.github.com/aallan/bafc70a347f3b9526d30
+ [ifapplet]: https://ifttt.com/applets/49618185d-log-speedtest-results-to-spreadsheet
+ [maker]: https://ifttt.com/maker

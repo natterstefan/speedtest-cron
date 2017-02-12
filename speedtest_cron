@@ -1,3 +1,9 @@
+###########################################################################
+# Originally written by: J0s3f, 2016
+# https://gitgud.io/J0s3f/speedtest_cron
+# Modified by: Stefan Natter, 2017
+###########################################################################
+
 #!/bin/bash
 #add python to path if needed
 #export PATH=/opt/usr/sbin:/opt/sbin:/opt/bin:$PATH
