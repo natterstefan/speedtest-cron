@@ -22,20 +22,20 @@ parentdir="$(dirname "$PWD")"
 $parentdir/speedtest_cli/speedtest.py --share --secure --simple --server 5351 > $log
 
 # Parse
-from=`str_extract "Testing from "`
-from_ip=`echo $from | sed 's/.*(//g' | sed 's/).*//g'`
-from=`echo $from | sed 's/ (.*//g'`
-
-server=`str_extract "Hosted by "`
-server_ping=`echo $server | sed 's/.*: //g'`
-server=`echo $server | sed 's/: .*//g'`
-server_dist=`echo $server | sed 's/.*\\[//g' | sed 's/\\].*//g'`
-server=`echo $server | sed 's/ \\[.*//g'`
-
 if [ "$1" = "download" ]; then
   speed=`str_extract "Download: "`
 elif [ "$1" = "upload" ]; then
   speed=`str_extract "Upload: "`
+else
+  from=`str_extract "Testing from "`
+  from_ip=`echo $from | sed 's/.*(//g' | sed 's/).*//g'`
+  from=`echo $from | sed 's/ (.*//g'`
+
+  server=`str_extract "Hosted by "`
+  server_ping=`echo $server | sed 's/.*: //g'`
+  server=`echo $server | sed 's/: .*//g'`
+  server_dist=`echo $server | sed 's/.*\\[//g' | sed 's/\\].*//g'`
+  server=`echo $server | sed 's/ \\[.*//g'`
 fi
 # share_url=`str_extract "Share results: "`
 
