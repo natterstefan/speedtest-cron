@@ -1,0 +1,13 @@
+{
+  "intents": [
+    {
+      "intent": "CurrentSpeedIntent",
+      "slots": [
+        {
+          "name": "Type",
+          "type": "LIST_OF_TYPES"
+        }
+      ]
+    }
+  ]
+}

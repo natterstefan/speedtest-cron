@@ -1,0 +1,4 @@
+CurrentSpeedIntent wie schnell ist mein {Type}
+CurrentSpeedIntent wie schnell ist meine {Type} geschwindigkeit
+CurrentSpeedIntent wie viel {Type} habe ich
+CurrentSpeedIntent sag mir meine {Type} geschwindigkeit

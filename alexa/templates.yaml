@@ -1,0 +1,14 @@
+welcome: |
+    Willkommen beim Speedtest-Skill. Sag mir was ich für dich testen soll, in dem du sagst wie schnell ist mein Download.
+
+welcome_reprompt: Bitte sag mir was ich testen soll. Sag dazu bitte wie schnell ist mein Download.
+
+known_type: |
+    Deine {{ type }} Geschwindigkeit aktuell ist {{ currentSpeed }}.
+
+unknown_type: Ich bin mir nicht sicher, was du testen mochtest. Bitte versuche es erneut.
+
+unknown_type_reprompt: |
+    Bitte sag mir was ich testen soll. Sag dazu bitte teste den Download fur mich.
+
+card_title: Speedtest
