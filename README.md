@@ -35,7 +35,7 @@ if the folder speedtest_cli is empty run ```git submodule update --init```
 
 With `./speedtest_cron` you run the test. But before you run the script you should change the speedtest server.
 
-The current server is ```5351``` (*UPC (Vienna, Austria)*). You can get a list of available servers by running ```./speedtest_cli/speedtest_cli.py --list```. Replace the serverId with the one you would like to use. In order to find the best one, I suggest you run a speedtest on [speedtest.net](speedtest) first and use the server they use.
+The current server is ```5351``` (*UPC (Vienna, Austria)*). You can get a list of available servers by running ```./speedtest_cli/speedtest_cli.py --list```. Set the `speedtest_server` value in  your config file to the id you want like to use. In order to find the best one, I suggest you run a speedtest on [speedtest.net](speedtest) first and use the server they use.
 
 With ``` `/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'` ``` we get your current IP-Address and use it as the source for the speedtest. If you run into problems you can remove ```--source `/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'` ``` though.
 
