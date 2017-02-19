@@ -1,4 +1,4 @@
-# speedtest-cron w/ Alexa Command and ngrok on a RaspberryPi
+# speedtest w/ Alexa Command and ngrok on a RaspberryPi
 
 [![GitHub stars](https://img.shields.io/github/stars/natterstefan/speedtest-cron.svg)](https://github.com/natterstefan/speedtest-cron/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/natterstefan/speedtest-cron.svg)](https://github.com/natterstefan/speedtest-cron/network)
@@ -6,11 +6,13 @@
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/natterstefan/speedtest-cron.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/natterstefan/speedtest-cron)
 [![Twitter Follow](https://img.shields.io/twitter/follow/natterstefan.svg?style=social&label=Follow)](https://twitter.com/natterstefan)
 
-An easy to use and implement Alexa Command to get the latest results from your speedtest.
+An easy to use and implement Alexa Skill Command to get the latest results from your speedtest.
+
 
 ## System Requirements
 
 A UNIX-like system with Python (at least 2.5) is required to run the scripts.
+
 
 ## Installation of Flask-Ask and Ngrok
 
@@ -31,9 +33,12 @@ Your Localhost-Server with an external accessible Domain is now running. The out
 ![ngrok Example](http://i.imgur.com/G4ArV3V.png)
 
 
-## Run the Speedtest Code
+### Submodule
 
-_Note:_ We assume that you run the `speedtest_cron` script regularly. Because (_as of now_) we do not run another speedtest (as it would take time), we just grab the result from the last result and tell it to you. There is room to improve this, but currently we do it this way.
+If the folder speedtest is empty run ```git submodule update --init```. Now you need to follow the installation description in the speedtest-submodule.
+
+
+## Run the Speedtest Code
 
 
 

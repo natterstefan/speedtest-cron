@@ -4,7 +4,7 @@ import logging
 from flask import Flask, json, render_template
 from flask_ask import Ask, request, session, question, statement
 
-import subprocess
+from speedtest.src.persistence import LogPersistence
 
 app = Flask(__name__)
 ask = Ask(app, "/")
@@ -24,9 +24,9 @@ def my_type_is(type):
     card_title = render_template('card_title')
     if type is not None:
         session.attributes[TYPE_KEY] = type
-        shellCall = './speedtest.sh ' + type
-        speed_text = render_template('known_type', currentSpeed=subprocess.check_output([shellCall], shell=True), type=type);
-        return statement(speed_text).simple_card(card_title, speed_text)
+        with LogPersistence('.speedtest/src/speedtest.db') as persistence:
+            speed_text = render_template('known_type', currentSpeed=persistence.fetch_last(), type=type)
+            return statement(speed_text).simple_card(card_title, speed_text)
     else:
         question_text = render_template('unknown_type')
         reprompt_text = render_template('unknown_type_reprompt')

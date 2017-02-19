@@ -1,3 +1,6 @@
 [submodule "speedtest_cli"]
 	path = speedtest_cli
 	url = git@github.com:sivel/speedtest-cli.git
+[submodule "alexa/speedtest"]
+	path = alexa/speedtest
+	url = git@github.com:philipheimboeck/speedtest.git
