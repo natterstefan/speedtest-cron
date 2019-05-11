@@ -7,9 +7,7 @@
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/natterstefan/speedtest-cron.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/natterstefan/speedtest-cron)
 [![Twitter Follow](https://img.shields.io/twitter/follow/natterstefan.svg?style=social&label=Follow)](https://twitter.com/natterstefan)
 
-
 An easy to use script test the speed (down-, upload and ping) of your ISP regularly (cronjob). [Inspired (Forked) by J0s3f's speedtest_cron on gitgud.io][jsspcr].
-
 
 ## Idea
 
@@ -19,15 +17,20 @@ The tests should be performed as close to the modem / router as possible. In any
 
 Ideal would be the execution directly on your router. If it has a storage for storing the measurement data and has enough power to run Python, you should run the code on the router. Otherwise I recommend to use a RaspberryPi or similar, which is connected by cable to the router.
 
-
 ## System Requirements
 
 A UNIX-like system with Python (at least 2.5) is required to run the scripts.
 
 ### Submodule
 
-if the folder speedtest_cli is empty run ```git submodule update --init```
+If the folder `speedtest_cli` is empty run ```git submodule update --init```. It
+should then checkout the commit with the hash `33e498beb30149ffe233b835cf1fcf012462d219`.
 
+#### Troubleshooting
+
+If the initialization fails (eg. because of the "`Permission denied (publickey).`"
+error), you have to follow the proposed solution here [#1](https://github.com/natterstefan/speedtest-cron/issues/1#issuecomment-440756964).
+Thank you [kyletaylored](https://github.com/kyletaylored) for reporting the issue.
 
 ## Installation
 
@@ -61,11 +64,15 @@ After reading the "[Use Raspberry Pi to Measure Broadband Speeds to Hold Your IS
 
 Improvements, suggestions or bug fixes are very welcome. Just create a pull request.
 
+If you have updated the submodule (eg. different release/commit), update it with:
+
+```bash
+git submodule foreach --recursive 'git reset --hard'
+```
 
 ## Similar projects
 
 There are other projects available, like [speedtest-cli-extras by HenrikBengtsson][spclix], [speedtest-cron by vwillcox][vwillcox] or [speedtest-cron by brainTrain][brainTrain]. The last one makes use of [Google Spreadsheets and IFTTT's Maker][iftttmaker].
-
 
  [spcli]: https://github.com/sivel/speedtest-cli
  [spclix]: https://github.com/HenrikBengtsson/speedtest-cli-extras
